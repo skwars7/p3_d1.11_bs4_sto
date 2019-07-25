@@ -1,0 +1,63 @@
+.bgbody-localara{
+  background-color:#F1F1F1;
+}
+
+.bgcolor-localara{
+  background-color:#fff;
+}
+
+.qww-localara{
+  border-bottom:1px solid;
+  border-bottom-color:#e4e6e8;
+  margin-left:0.5em;
+  margin-right:0.5em;
+}
+
+.minheader-localara{
+  line-height:2.44;
+  height:40px;
+  clear:both;
+  margin-bottom:-0.5em;
+}
+
+.css-tag-coustom{
+  cursor:pointer;
+  color:#39739d;
+  background-color:#E1ECF4;
+  border-color:transparent;
+  position:relative;
+  display:inline-block;
+  padding:.4em .5em;
+  margin:2px 2px 2px 0;
+  font-size:11px;
+  line-height:1;
+  white-space:nowrap;
+  text-decoration:none;
+  text-align:center;
+  border-width:1px;
+  border-style:solid;
+  border-radius:10px;
+}
+
+.css-tag-coustom:hover{
+  color:#547187;
+  background-color:#d5e5f1;
+  border-color:transparent;
+  text-decoration:none;
+}
+.border-localara{
+  border-top : 2px solid #00AEEF;
+}
+.que-header-localara{
+    clear: both;
+    margin-bottom: 1em;
+    padding: 5px 0;
+    border-bottom: 1px solid #e4e6e8;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.side-btn-localara{
+  padding-left: 10px;
+  padding-top: 20px
+}

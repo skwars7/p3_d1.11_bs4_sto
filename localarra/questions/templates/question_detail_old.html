@@ -1,0 +1,89 @@
+{% extends "header.html" %}
+
+{% block content %}
+	{% for post in post_detail %}
+	                    	<div class="comment-item">
+	                            <article class="contact-row">
+	                                <div class="user-card-row">
+	                                    <div class="tbl-row">
+	                                        <div class="tbl-cell tbl-cell-photo ">
+	                                            <div class="tbl-row tbl-cell-photo text-center">
+	                                            	<div class="">/\</div>
+	                                            	<span title='0 views'>{{ post.Score }}</span>
+	                                            </div>
+	                                            <div class="tbl-row tbl-cell-photo text-center">
+	                                            	<div>\/</div>
+	                                            </div>
+	                                        </div>
+	                                        <div class="tbl-cell" style="padding-right: 10px">
+	                                            <p class="user-card-row-name"><a href="">{{ post.Title }}</a></p>
+	                                            <p class="user-card-row-mail small"><span>{{ post.Body }}</span></p>
+	                                        </div>
+	                                        <div class="tbl-cell tbl-cell-status">{{ post.CreationDate|timesince }}</div>
+	                                    </div>
+	                                    <div class="tbl-row tbl-cell-photo text-center">
+	                                        <span title="0 views">{{ post.ViewCount }}</span>
+	                                        <div class="">Views</div>
+	                                    </div>
+	                                </div>
+	                            </article>
+	                        </div>
+	{% empty %}
+		<h1>Something Went wrong please try again</h1>
+	{% endfor %}
+<h6 style="padding-left: 20%">Answer {{ post_details|length }}</h3>	                            
+	{% for posts in post_details %}
+	                    	<div class="comment-item">
+	                            <article class="contact-row">
+	                                <div class="user-card-row">
+	                                    <div class="tbl-row">
+	                                        <div class="tbl-cell tbl-cell-photo ">
+	                                            <div class="tbl-row tbl-cell-photo text-center" style="padding-left: 35%">
+	                                            	<div class="">/\</div>
+	                                            	<span title='0 views'>{{ posts.Score }}</span>
+	                                            </div>
+	                                            <div class="tbl-row tbl-cell-photo text-center">
+	                                            	<div>\/</div>
+	                                            </div>
+	                                        </div>
+	                                        <div class="tbl-cell" style="padding-right: 10px">
+	                                            <p class="user-card-row-name">{% if posts.Title == None %}
+	                                            								
+	                                            								{% else %}
+	                                            								{{ posts.Title }}
+	                                            								{% endif%}
+	                                            								</p>
+	                                            <p class="user-card-row-mail small"><span>{{ posts.Body }}</span></p>
+	                                        </div>
+	                                        <div class="tbl-cell tbl-cell-status">{{ posts.CreationDate|timesince }}</div>
+	                                    </div>
+	                                </div>
+	                            </article>
+	                        </div>
+	{% empty %}
+							<div class="comment-item">
+	                            <article class="contact-row">
+	                                <div class="user-card-row">
+	                                    <div class="tbl-row">
+	                                        <div class="tbl-cell tbl-cell-photo "></div>
+	                                        <div class="tbl-cell" style="padding-right: 10px">
+												<div id="fb-root"></div>
+													<script>
+														(function(d, s, id) {
+													  		var js, fjs = d.getElementsByTagName(s)[0];
+													  		if (d.getElementById(id)) return;
+													  		js = d.createElement(s); 
+													  		js.id = id;
+													  		js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
+													  		fjs.parentNode.insertBefore(js, fjs);
+														}(document, 'script', 'facebook-jssdk'));
+													</script>
+													<h6>No answers yet Don't worry it will come here soon</h6>
+												<div class="fb-share-button" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2Fquestions%2F{{ post.id }}&amp;src=sdkpreparse">Share</a></div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </article>
+	                        </div> 
+	{% endfor %}
+{% endblock %}

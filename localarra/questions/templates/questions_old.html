@@ -1,0 +1,35 @@
+{% extends "header.html" %}
+
+{% block content %}
+	{% for post in all_post %}
+	                    	<div class="comment-item">
+	                            <article class="contact-row">
+	                                <div class="user-card-row">
+	                                    <div class="tbl-row">
+	                                        <div class="tbl-cell tbl-cell-photo ">
+	                                            <div class="tbl-cell tbl-cell-photo text-center">
+	                                            	<span title='{{ post.Score }} views'>{{ post.Score }}</span>
+	                                            	<div class="tbl-row">Votes</div>
+	                                            </div>
+	                                            <div class="tbl-cell tbl-cell-photo text-center">
+	                                            	<span title="{{ post.AnswerCount }} answers">{{ post.AnswerCount }}</span>
+	                                            	<div class="tbl-row">Answers</div>
+	                                            </div>
+	                                            <div class="tbl-cell tbl-cell-photo text-center">
+	                                            	<span title="{{ post.ViewCount }} views">{{ post.ViewCount }}</span>
+	                                            	<div class="tbl-row">Views</div>
+	                                            </div>
+	                                        </div>
+	                                        <div class="tbl-cell" style="padding-right: 10px">
+	                                            <p class="user-card-row-name"><a href="{{ post.id }}">{{ post.Title }}</a></p>
+	                                            <p class="user-card-row-mail small"><span>{{ post.Body|slice:":180" }}...</span></p>
+	                                        </div>
+	                                        <div class="tbl-cell tbl-cell-status">{{ post.CreationDate|date:"Y-m-d" }}</div>
+	                                    </div>
+	                                </div>
+	                            </article>
+	                        </div>
+	{% empty %}
+		<h1>BadLuck nothing to show</h1>
+	{% endfor %}
+{% endblock %}

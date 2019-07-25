@@ -1,0 +1,8 @@
+{% for key,value in mylist.items %}
+	<p>  {{ forloop.counter }}.
+   {% for key2, nested_value in value.items %}
+      {% if 'question_name' in key2 %}
+      {{key2}} => {{ nested_value }} inserted in database</p>
+      {% endif %}
+   {% endfor %}
+{% endfor %}

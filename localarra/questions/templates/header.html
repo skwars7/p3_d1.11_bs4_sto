@@ -1,0 +1,151 @@
+<html>
+<head>  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block meta %}
+        <title>Localarra Home Page</title>
+    {% endblock %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/Pretty-Footer.css' %}" />
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}" ></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" ></script>
+    <script src="{% static 'js/main.js' %}" ></script>
+    {% block jquery %}
+    {% endblock%}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // $('#spinner').hide();
+            $('#searchSubmit').click(function() {
+                q = $('#b-localarra').val();
+                $('#results').html('&nbsp;').load( 'http://127.0.0.1:8000/questions/search/?q=' + q);
+            });
+        });
+        // $(document).ajaxStart(function() {
+        //     $('#spinner').show();
+        // }).ajaxStop(function() {
+        //     $('#spinner').hide();
+        // });
+    </script>
+</head>
+
+<body class="bgbody-localara">
+    <header>
+        <nav id="nav_bar" class="border-localara navbar navbar-default">
+          <div class="container-fluid" style="padding-left: 10em" id="h-localarra">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">LocalArra</a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li class="active" id="1-localarra"><a href="#">Questions <span class="sr-only">(current)</span></a></li>
+                <li id="2-localarra"><a href="#">Jobs</a></li>
+                <li id="3-localarra"><a href="#">Tags</a></li>
+                <li id="4-localarra"><a href="#">Users</a></li>
+              </ul>
+              <div class="navbar-form navbar-right">
+                <div class="form-group">
+                  <input type="text" id="b-localarra" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" id="searchSubmit" class="btn btn-default">Submit</button>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+                <li id="5-localarra"><a href="#">Login</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+    {% block question_details %}
+        <div class="container" style="margin-top: 40px">
+            <div class="col-md-8 hidden-xs" style="margin-bottom:10px"><img src="{% static 'img/1.png' %}" height="90px" width="728px">
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-8 bgcolor-localara">
+                            <div class="row qww-localara">
+                                <div class="col-md-12 minheader-localara"><span>All Questons </span></div>
+                            </div>
+                            <div class="row">
+                                <!-- this tag can be performe as search result for fully relaced it with result -->
+                                <div class="col-md-12 col-xs-12" id="results">
+    <!-- ////////////////////////////////////////////start of 1 post demo\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+                                    {% block content %}
+                                    
+                                    {% endblock%}
+    <!-- /////////////////////////////////////////////end of 1 post demo\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                {% block pagination %}
+    
+                                {% endblock %}
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-3 hidden-xs">
+                            <div class="row bgcolor-localara" style="margin-bottom : 1.5em">
+                                <div class="row qww-localara">
+                                    <div class="col-md-12 minheader-localara"><span>Header </span></div>
+                                </div>
+                                <div class="row qww-localara small" style="padding:1em;">
+                                    <div class="col-md-1"><span class="glyphicon glyphicon-camera"> </span></div>
+                                    <div class="col-md-10"><span>cjhvjhjhvjhvj jyjbjhb jyfyfuy</span></div>
+                                </div>
+                            </div>
+                            <div class="row bgcolor-localara" style="margin-bottom : 1.5em">
+                                <div class="row qww-localara">
+                                    <div class="col-md-12 minheader-localara"><span>Header </span></div>
+                                </div>
+                                <div class="row qww-localara small" style="padding:1em;">
+                                    <div class="col-md-1"><span class="glyphicon glyphicon-camera"> </span></div>
+                                    <div class="col-md-10"><span>cjhvjhjhvjhvj jyjbjhb jyfyfuy</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    <footer>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 footer-navigation">
+                <h3><a href="#">Company<span>logo </span></a></h3>
+                <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                <p class="company-name">Company Name © 2015 </p>
+            </div>
+            <div class="col-md-4 col-sm-6 footer-contacts">
+                <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                    <p><span class="new-line-span">21 Revolution Street</span> Paris, France</p>
+                </div>
+                <div><i class="fa fa-phone footer-contacts-icon"></i>
+                    <p class="footer-center-info email text-left"> +1 555 123456</p>
+                </div>
+                <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                    <p> <a href="#" target="_blank">support@company.com</a></p>
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-4 footer-about">
+                <h4>About the company</h4>
+                <p> Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+                </p>
+                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
